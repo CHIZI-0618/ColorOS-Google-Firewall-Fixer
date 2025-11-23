@@ -4,10 +4,13 @@ SCRIPT_DIR=${0%/*}
 
 source ${SCRIPT_DIR}/common.sh
 
-echo "[$(date)] 手动处理防火墙规则..." >> "$LOGFILE"
+chains="fw_INPUT fw_OUTPUT"
 
-remove_reject_rules "fw_INPUT"
+echo "[$(date)] 开始手动清理 IPv4 和 IPv6 中的 REJECT 规则..." >> "$LOGFILE"
 
-remove_reject_rules "fw_OUTPUT"
+for chain in $chains; do
+    remove_reject_rules "filter" "$chain" "ipv4"
+    remove_reject_rules "filter" "$chain" "ipv6"
+done
 
-echo "[$(date)] 防火墙规则手动处理完成" >> "$LOGFILE"
+echo "[$(date)] 手动清理完成" >> "$LOGFILE"
