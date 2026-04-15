@@ -1,6 +1,6 @@
 id=google-services-firewall-cleaner
 name=ColorOS Google 拦截规则清理
-version=2.0
-versionCode=112309
+version=3.0
+versionCode=260415
 author=CHIZI-0618
-description=清理 ColorOS 16 系统中拦截 Google Play 商店和 Google Play 服务联网的 iptables 规则，恢复 Google 服务的正常访问。
+description=清理 ColorOS 16 / RedMagic OS 中拦截 Google Play 商店和 Google Play 服务联网的 iptables 规则，使系统正常访问 Google 系服务。
